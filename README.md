@@ -1,64 +1,57 @@
-<p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
+## E-commerce Backend Project
+This e-commerce application combines the powerful capabilities of Laravel and Vue.js 3 to deliver a robust and interactive shopping experience. By utilizing Laravel Sanctum for authentication, the application ensures secure user management and seamless integration between the frontend and backend.
 
-<p align="center">
-<a href="https://travis-ci.org/laravel/framework"><img src="https://travis-ci.org/laravel/framework.svg" alt="Build Status"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/dt/laravel/framework" alt="Total Downloads"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/v/laravel/framework" alt="Latest Stable Version"></a>
-<a href="https://packagist.org/packages/laravel/framework"><img src="https://img.shields.io/packagist/l/laravel/framework" alt="License"></a>
-</p>
+- This project is a modern e-commerce application built using Laravel as the backend framework and Vue.js 3 for the frontend. It leverages Laravel Sanctum for authentication to provide secure user login and registration functionalities.
 
-## About Laravel
+## Backend (Laravel)
 
-Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
+1. Product Management:
+. Implements CRUD (Create, Read, Update, Delete) operations for managing products.
+. Stores product details including name, description, and prrice.
 
-- [Simple, fast routing engine](https://laravel.com/docs/routing).
-- [Powerful dependency injection container](https://laravel.com/docs/container).
-- Multiple back-ends for [session](https://laravel.com/docs/session) and [cache](https://laravel.com/docs/cache) storage.
-- Expressive, intuitive [database ORM](https://laravel.com/docs/eloquent).
-- Database agnostic [schema migrations](https://laravel.com/docs/migrations).
-- [Robust background job processing](https://laravel.com/docs/queues).
-- [Real-time event broadcasting](https://laravel.com/docs/broadcasting).
+2. User Management:
+.Allows user registration and login using Laravel Sanctum for secure authentication.
+.Manages user profiles and their data.
 
-Laravel is accessible, powerful, and provides tools required for large, robust applications.
+3. Cart Management:
+.Facilitates adding products to the cart, updating quantities, and removing items.
+.Stores cart information associated with user sessions.
 
-## Learning Laravel
+4. Order Management:
+.Handles the checkout process, creating and managing orders.
+.Provides order history and detailed order views for users.
 
-Laravel has the most extensive and thorough [documentation](https://laravel.com/docs) and video tutorial library of all modern web application frameworks, making it a breeze to get started with the framework.
+5. Authentication:
+.Uses Laravel Sanctum to secure user authentication and maintain session state.
+.Protects API routes to ensure only authenticated users can access specific endpoints.
 
-If you don't feel like reading, [Laracasts](https://laracasts.com) can help. Laracasts contains over 1500 video tutorials on a range of topics including Laravel, modern PHP, unit testing, and JavaScript. Boost your skills by digging into our comprehensive video library.
 
-## Laravel Sponsors
+## Frontend (Vue.js 3)
 
-We would like to extend our thanks to the following sponsors for funding Laravel development. If you are interested in becoming a sponsor, please visit the Laravel [Patreon page](https://patreon.com/taylorotwell).
+1. Product Listing and Details:
+.Displays products with detailed views, including product name, descriptions, and prices.
+.Implements search and filter functionalities for easy product discovery.
 
-### Premium Partners
+2. Shopping Cart:
+.Manages the shopping cart state, allowing users to add, update, and remove items.
+.Provides a user-friendly interface for reviewing and managing cart contents.
 
-- **[Vehikl](https://vehikl.com/)**
-- **[Tighten Co.](https://tighten.co)**
-- **[Kirschbaum Development Group](https://kirschbaumdevelopment.com)**
-- **[64 Robots](https://64robots.com)**
-- **[Cubet Techno Labs](https://cubettech.com)**
-- **[Cyber-Duck](https://cyber-duck.co.uk)**
-- **[Many](https://www.many.co.uk)**
-- **[Webdock, Fast VPS Hosting](https://www.webdock.io/en)**
-- **[DevSquad](https://devsquad.com)**
-- **[Curotec](https://www.curotec.com/services/technologies/laravel/)**
-- **[OP.GG](https://op.gg)**
-- **[WebReinvent](https://webreinvent.com/?utm_source=laravel&utm_medium=github&utm_campaign=patreon-sponsors)**
-- **[Lendio](https://lendio.com)**
+3. User Authentication:
+.Implements login and registration forms with validation.
+.Protects routes that require authentication, ensuring only logged-in users can access certain pages.
 
-## Contributing
+4. Order Checkout:
+.Manages the checkout process, collecting shipping information and payment details.
+.Provides confirmation and order summary pages.
 
-Thank you for considering contributing to the Laravel framework! The contribution guide can be found in the [Laravel documentation](https://laravel.com/docs/contributions).
+5. User Profile:
+.Allows users to view and update their personal information and order history.
+.Provides a secure interface for managing user accounts.
 
-## Code of Conduct
+## Authentication with Laravel Sanctum
+1. Token-Based Authentication: 
+Laravel Sanctum provides a lightweight API authentication system using tokens. Users receive a token upon login, which is used to authenticate subsequent requests.
 
-In order to ensure that the Laravel community is welcoming to all, please review and abide by the [Code of Conduct](https://laravel.com/docs/contributions#code-of-conduct).
+2. SPA Authentication: Sanctum is designed to provide a seamless authentication experience for single-page applications (SPAs) built with Vue.js.
 
-## Security Vulnerabilities
-
-If you discover a security vulnerability within Laravel, please send an e-mail to Taylor Otwell via [taylor@laravel.com](mailto:taylor@laravel.com). All security vulnerabilities will be promptly addressed.
-
-## License
-
-The Laravel framework is open-sourced software licensed under the [MIT license](https://opensource.org/licenses/MIT).
+3. Session Management: Sanctum maintains session state to keep users logged in across multiple pages and interactions.
