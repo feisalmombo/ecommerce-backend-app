@@ -15,7 +15,23 @@ class ProductController extends Controller
     */
     public function index()
     {
-        return response()->json(Product::all(), 200);
+        //return response()->json(Product::all(), 200);
+
+        $products = Product::all();
+
+        if($products->count() > 0){
+
+            return response()->json([
+                'status' => 200,
+                'products' => $products
+            ], 200);
+
+        }else {
+            return response()->json([
+                'status' => 404,
+                'message' => 'No Records Found'
+            ], 404);
+        }
     }
 
 
