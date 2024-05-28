@@ -108,27 +108,63 @@ class ProductController extends Controller
     /**
     * Update the specified resource in storage.
     */
-    public function update(Request $request, Product $product)
+    public function update(Request $request, int $id)
     {
-        // Validate the request data
-        $validatedData = $request->validate([
+
+        // $validatedData = $request->validate([
+        //     'name' => 'required|max:255',
+        //     'description' => 'required',
+        //     'price' => 'required|numeric',
+        // ]);
+
+        // if ($product) {
+
+        // $product->update($validatedData);
+
+        // return response()->json($product, 200);
+        // } else {
+
+        // return response()->json(['message' => 'Product not found'], 404);
+        // }
+
+
+        $validattor = Validator::make($request->all(), [
             'name' => 'required|max:255',
             'description' => 'required',
             'price' => 'required|numeric',
         ]);
 
+        if($validattor->fails()) {
 
-        // Check if the product was found
-        if ($product) {
-        // Update the product with the validated data
-        $product->update($validatedData);
+            return response()->json([
+                'status' => 422,
+                'errors' => $validattor->messages()
+            ], 422);
 
+        }else {
 
-        // Return the updated product as a JSON response with a 200 HTTP status code
-        return response()->json($product, 200);
-        } else {
-        // Return a 404 Not Found HTTP status code if the product was not found
-        return response()->json(['message' => 'Product not found'], 404);
+            $product = Product::find($id);
+
+            if($product) {
+
+                $product->update([
+                    'name' => $request->name,
+                    'description' => $request->description,
+                    'price' => $request->price,
+                ]);
+
+                return response()->json([
+                    'status' => 200,
+                    'message' => "Product Updated Successfully"
+                ], 200);
+
+            }else {
+
+                return response()->json([
+                    'status' => 404,
+                    'message' => "No Such Product Found!"
+                ], 404);
+            }
         }
     }
 
