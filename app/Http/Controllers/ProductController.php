@@ -86,18 +86,22 @@ class ProductController extends Controller
     */
     public function show(string $id)
     {
-        // Retrieve the product from the database using the provided $id
-        $product = Product::find($id);
+            $product = Product::find($id);
 
+            if($product) {
+                return response()->json([
+                    'status' => 200,
+                    'product' => $product
+                ], 200);
 
-        // Check if the product was found
-        if ($product) {
-            // Return the product as a JSON response with a 200 HTTP status code
-            return response()->json($product, 200);
-        } else {
-            // Return a 404 Not Found HTTP status code if the product was not found
-        return response()->json(['message' => 'Product not found'], 404);
-        }
+            }else {
+
+                return response()->json([
+                    'status' => 404,
+                    'message' => "No Such Product Found!"
+                ], 404);
+
+            }
     }
 
 
