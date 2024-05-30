@@ -26,3 +26,11 @@ Route::apiResource('products', ProductController::class);
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
+
+
+// Route for All
+Route::any('{any}', function(){
+    return response()->json([
+    	'status' => 'error',
+        'message' => 'Resource not found'], 404);
+})->where('any', '.*');
