@@ -61,13 +61,9 @@ class AuthController extends Controller
     // Function to handle refresh for token
     public function refresh()
     {
-        return response()->json([
+        return response([
             'status' => 'success',
             'user' => Auth::user(),
-            'authorisation' => [
-                'token' => Auth::refresh(),
-                'type' => 'bearer',
-            ]
-        ]);
+            ]);
     }
 }
