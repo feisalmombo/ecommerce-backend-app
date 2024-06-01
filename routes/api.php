@@ -31,6 +31,15 @@ Route::post('/login', [AuthController::class, 'login']);
 Route::post('/refresh', [AuthController::class, 'refresh']);
 Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
 
+// Route::group(['middleware' => 'auth:jwt'], function() {
+//     Route::get('articles', 'ArticleController@index');
+//     Route::get('articles/{article}', 'ArticleController@show');
+//     Route::post('articles', 'ArticleController@store');
+//     Route::put('articles/{article}', 'ArticleController@update');
+//     Route::delete('articles/{article}', 'ArticleController@delete');
+// });
+
+
 
 // Route for All
 Route::any('{any}', function(){
