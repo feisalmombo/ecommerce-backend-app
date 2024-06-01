@@ -20,12 +20,12 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-// Access route by using this middleware
+// Protect route by using this middleware
 Route::group(['middleware' => 'auth:sanctum'], function() {
     Route::apiResource('products', ProductController::class);
 });
 
-
+// Route for Authentication
 Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/refresh', [AuthController::class, 'refresh']);
