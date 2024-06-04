@@ -23,17 +23,8 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
 Route::apiResource('products', ProductController::class);
 
 // Protect route by using this middleware
-Route::group(['middleware' => 'auth:sanctum'], function() {
-    // Route::apiResource('products', ProductController::class);
-});
-
-// Route::group(['prefix' => 'books', 'middleware' => 'auth:sanctum'], function () {
-//     Route::get('/', [BookController::class, 'index']);
-//     Route::post('add', [BookController::class, 'add']);
-//     Route::get('edit/{id}', [BookController::class, 'edit']);
-//     Route::post('update/{id}', [BookController::class, 'update']);
-//     Route::delete('delete/{id}', [BookController::class, 'delete']);
-//     Route::get('show/{id}', [BookController::class, 'show']);
+// Route::group(['middleware' => 'auth:sanctum'], function() {
+//     Route::apiResource('products', ProductController::class);
 // });
 
 // Route for Authentication
@@ -41,14 +32,6 @@ Route::post('/register', [AuthController::class, 'register']);
 Route::post('/login', [AuthController::class, 'login']);
 Route::post('/refresh', [AuthController::class, 'refresh']);
 Route::middleware('auth:sanctum')->post('/logout', [AuthController::class, 'logout']);
-
-// Route::group(['middleware' => 'auth:jwt'], function() {
-//     Route::get('articles', 'ArticleController@index');
-//     Route::get('articles/{article}', 'ArticleController@show');
-//     Route::post('articles', 'ArticleController@store');
-//     Route::put('articles/{article}', 'ArticleController@update');
-//     Route::delete('articles/{article}', 'ArticleController@delete');
-// });
 
 
 
