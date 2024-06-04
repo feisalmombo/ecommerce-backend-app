@@ -20,10 +20,21 @@ Route::middleware('auth:sanctum')->get('/user', function (Request $request) {
     return $request->user();
 });
 
+Route::apiResource('products', ProductController::class);
+
 // Protect route by using this middleware
 Route::group(['middleware' => 'auth:sanctum'], function() {
-    Route::apiResource('products', ProductController::class);
+    // Route::apiResource('products', ProductController::class);
 });
+
+// Route::group(['prefix' => 'books', 'middleware' => 'auth:sanctum'], function () {
+//     Route::get('/', [BookController::class, 'index']);
+//     Route::post('add', [BookController::class, 'add']);
+//     Route::get('edit/{id}', [BookController::class, 'edit']);
+//     Route::post('update/{id}', [BookController::class, 'update']);
+//     Route::delete('delete/{id}', [BookController::class, 'delete']);
+//     Route::get('show/{id}', [BookController::class, 'show']);
+// });
 
 // Route for Authentication
 Route::post('/register', [AuthController::class, 'register']);
